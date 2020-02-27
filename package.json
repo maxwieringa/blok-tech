@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxwieringa/opdrPackages.git"
+  },
+  "author": "Max",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxwieringa/opdrPackages/issues"
+  },
+  "homepage": "https://github.com/maxwieringa/opdrPackages#readme",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
