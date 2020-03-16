@@ -1,0 +1,20 @@
+<%- include ('head.ejs') %>
+<title>
+  <%= data.naam %> - Bamboos Profiel</title>
+
+<body>
+  <%- include ('header.ejs') %>
+  <h1>
+    <%= data.naam %>
+  </h1>
+  <p>
+    <%= data.leeftijd %>
+  </p>
+  <p>
+    <%= data.bio %>
+  </p>
+
+  <p><a href="/">Back to matches</a></p>
+</body>
+
+</html>
