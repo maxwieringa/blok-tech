@@ -126,7 +126,7 @@ function update(req, res, next) {
     if (err) {
       next(err)
     } else {
-      res.redirect('/' + data.id)
+      res.redirect('/')
     }
   }
 }
