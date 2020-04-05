@@ -18,9 +18,10 @@ app.set('view engine', 'ejs')
 app.set('views', 'view')
 app.use(express.static('public'))
 app.get('/', matches)
-app.post('/', upload.single('foto'), add)
-app.get('/add', form)
+app.post('/', upload.single('foto'), update)
 app.get('/:id/update', updateform)
+app.post('/add', upload.single('foto'), add)
+app.get('/add', form)
 app.get('/:id', profile)
 app.delete('/:id', remove)
 app.use(notFound)
@@ -99,20 +100,24 @@ function add(req, res, next) {
   }
 }
 
+let updateId
+
 function updateform(req, res) {
   res.render('updateform.ejs')
+  updateId = req.params.id
+  console.log(updateId)
 }
 
 function update(req, res, next) {
-  let id = req.params.id
-  db.collection('profiles').deleteOne({
-    _id: mongo.ObjectID(id)
-  })
-  db.collection('profiles').updateOne(id, {
-    naam: req.body.naam,
-    foto: req.file ? req.file.filename : null,
-    leeftijd: req.body.leeftijd,
-    bio: req.body.bio
+  db.collection('profiles').updateOne({
+    _id: mongo.ObjectID(updateId)
+  }, {
+    $set: {
+      naam: req.body.naam,
+      foto: req.file ? req.file.filename : null,
+      leeftijd: req.body.leeftijd,
+      bio: req.body.bio
+    }
   }, {
     multi: false
   }, done)
@@ -121,7 +126,7 @@ function update(req, res, next) {
     if (err) {
       next(err)
     } else {
-      res.redirect('/' + data.insertedId)
+      res.redirect('/' + data.id)
     }
   }
 }
