@@ -20,6 +20,7 @@ app.use(express.static('public'))
 app.get('/', matches)
 app.post('/', upload.single('foto'), add)
 app.get('/add', form)
+app.get('/:id/update', updateform)
 app.get('/:id', profile)
 app.delete('/:id', remove)
 app.use(notFound)
@@ -63,7 +64,7 @@ function profile(req, res, next) {
   let id = req.params.id
 
   db.collection('profiles').findOne({
-    _id: new mongo.ObjectID(id)
+    _id: mongo.ObjectID(id)
   }, done)
 
   function done(err, data) {
@@ -98,11 +99,38 @@ function add(req, res, next) {
   }
 }
 
+function updateform(req, res) {
+  res.render('updateform.ejs')
+}
+
+function update(req, res, next) {
+  let id = req.params.id
+  db.collection('profiles').deleteOne({
+    _id: mongo.ObjectID(id)
+  })
+  db.collection('profiles').updateOne(id, {
+    naam: req.body.naam,
+    foto: req.file ? req.file.filename : null,
+    leeftijd: req.body.leeftijd,
+    bio: req.body.bio
+  }, {
+    multi: false
+  }, done)
+
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+      res.redirect('/' + data.insertedId)
+    }
+  }
+}
+
 function remove(req, res, next) {
-  var id = req.params.id
+  let id = req.params.id
 
   db.collection('profiles').deleteOne({
-    _id: new mongo.ObjectID(id)
+    _id: mongo.ObjectID(id)
   }, done)
 
   function done(err) {

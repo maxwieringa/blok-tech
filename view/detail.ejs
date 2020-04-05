@@ -10,23 +10,15 @@
     <%= data.naam %>
   </h1>
   <% if (data.foto) { %>
-<img
-  alt
-  src="/upload/<%= data.foto %>"
->
-<% } %>
+  <img alt src="/upload/<%= data.foto %>">
+  <% } %>
   <p>
     <%= data.leeftijd %>
   </p>
   <p>
     <%= data.bio %>
   </p>
-  <button
-      id=js-remove
-      data-id="<%= data._id %>"
-    >Unmatch</button>
-  <p><a href="/">Back to matches</a></p>
-  <script src=/index.js></script>
-</body>
-
-</html>
+  <button id=js-remove data-id="<%= data._id %>">Unmatch</button>
+  <button><a href="/<%= data._id %>/update">Profiel aanpassen</a></button>
+  <p><a href="/">Terug naar matches</a></p>
+  <script src=/index.js> </script> </body> </html>
