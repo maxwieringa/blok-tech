@@ -30,6 +30,14 @@ Om de server te runnen voer je in de terminal de volgende code bij.
 
 `$ node server.js`
 
+## Gebruik
+
+Om het te gebruiken moet je in de browser naar localhost:3000 gaan.
+
 ## Wiki
 
 https://github.com/maxwieringa/blok-tech/wiki
+
+## License 
+
+Dit project is gelicenseerd onder ISC license. Je kan de code gebruiken, kopiëren en veranderen zolang de license die [hier](https://github.com/maxwieringa/blok-tech/blob/master/license.md) te vinden is vermeld wordt in al je kopiën.
