@@ -7,6 +7,18 @@ body {
 header {
   background-color: #BCD4B5;
   padding: 10px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 200px 1fr 300px;
+}
+
+#logo {
+  height: 75px;
+  width: 150px;
+}
+
+nav {
+  grid-column: 3;
 }
 
 h1 {
