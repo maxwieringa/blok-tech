@@ -13,6 +13,7 @@ const db = mongoose.connection
 const upload = multer({
   dest: 'public/upload/'
 })
+let updateId
 
 app.set('view engine', 'ejs')
 app.set('views', 'view')
@@ -38,7 +39,7 @@ db.on('connected', () => {
   console.log('Mongoose connected')
 })
 
-//Schema profielen
+//Schema voor profielen
 const ProfielSchema = new Schema({
   naam: String,
   foto: String,
@@ -46,9 +47,10 @@ const ProfielSchema = new Schema({
   bio: String
 })
 
-//Model
+//Model van Schema
 const Profiel = mongoose.model('Profile', ProfielSchema)
 
+// Gaat opzoek naar alle profielen en zet ze in een array en renderd de ejs pagina
 function matches(req, res, next) {
   db.collection('profiles').find().toArray(done)
 
@@ -63,6 +65,7 @@ function matches(req, res, next) {
   }
 }
 
+// Gaat opzoek naar een profiel en renderd te ejs pagina voor dat profiel
 function profile(req, res, next) {
   let id = req.params.id
 
@@ -81,10 +84,12 @@ function profile(req, res, next) {
   }
 }
 
+// Renderd de ejs pagina voor het toevoegen van een profiel
 function form(req, res) {
   res.render('add.ejs')
 }
 
+// Functie die ervoor zorgt dat een profiel toegevoegd wordt in MongoDB
 function add(req, res, next) {
   db.collection('profiles').insertOne({
     naam: req.body.naam,
@@ -102,8 +107,7 @@ function add(req, res, next) {
   }
 }
 
-let updateId
-
+// Renderd de ejs pagina voor het aanpassen van een profiel
 function updateform(req, res, data) {
   res.render('updateform.ejs', {
     data: data
@@ -112,6 +116,7 @@ function updateform(req, res, data) {
   console.log(updateId)
 }
 
+// Functie voor het aanpassen van een profiel
 function update(req, res, next) {
   Profiel.updateOne({
     _id: mongo.ObjectID(updateId)
@@ -135,6 +140,7 @@ function update(req, res, next) {
   }
 }
 
+// Functie voor het verwijderen van profielen, unmatchen zoals het in de app heet
 function remove(req, res, next) {
   let id = req.params.id
 
