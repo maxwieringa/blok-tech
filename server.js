@@ -24,7 +24,9 @@ app.post('/add', upload.single('foto'), add)
 app.get('/add', form)
 app.get('/:id', profile)
 app.delete('/:id', remove)
-app.use(notFound)
+app.use(function notFound(req, res) {
+  res.status(404).render('notfound')
+})
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 mongoose.connect(mongodbUri, {
@@ -64,7 +66,7 @@ function matches(req, res, next) {
 function profile(req, res, next) {
   let id = req.params.id
 
-  db.collection('profiles').findOne({
+  Profiel.findOne({
     _id: mongo.ObjectID(id)
   }, done)
 
@@ -111,7 +113,7 @@ function updateform(req, res, data) {
 }
 
 function update(req, res, next) {
-  db.collection('profiles').updateOne({
+  Profiel.updateOne({
     _id: mongo.ObjectID(updateId)
   }, {
     $set: {
@@ -136,7 +138,7 @@ function update(req, res, next) {
 function remove(req, res, next) {
   let id = req.params.id
 
-  db.collection('profiles').deleteOne({
+  Profiel.deleteOne({
     _id: mongo.ObjectID(id)
   }, done)
 
@@ -149,8 +151,4 @@ function remove(req, res, next) {
       })
     }
   }
-}
-
-function notFound(req, res) {
-  res.status(404).render('notfound.ejs')
 }
