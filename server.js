@@ -102,8 +102,10 @@ function add(req, res, next) {
 
 let updateId
 
-function updateform(req, res) {
-  res.render('updateform.ejs')
+function updateform(req, res, data) {
+  res.render('updateform.ejs', {
+    data: data
+  })
   updateId = req.params.id
   console.log(updateId)
 }
@@ -150,5 +152,5 @@ function remove(req, res, next) {
 }
 
 function notFound(req, res) {
-  res.status(404).render('not-found.ejs')
+  res.status(404).render('notfound.ejs')
 }
