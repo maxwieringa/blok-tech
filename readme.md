@@ -2,9 +2,11 @@
 
 ## Table of content
 
-* Beschrijving
-* Installeren 
-* Wiki
+* [Beschrijving](https://github.com/maxwieringa/blok-tech#beschrijving)
+* [Installeren](https://github.com/maxwieringa/blok-tech#installeren) 
+* [Gebruik](https://github.com/maxwieringa/blok-tech#gebruik)
+* [Wiki](https://github.com/maxwieringa/blok-tech#wiki)
+* [License](https://github.com/maxwieringa/blok-tech#license)
 
 ## Beschrijving
 
