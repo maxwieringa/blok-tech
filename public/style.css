@@ -14,11 +14,51 @@ h1 {
   color: #88C173;
 }
 
+h2 {
+  text-align: center;
+  color: #88C173;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+}
+
 p {
   color: #88C173;
   font-family: 'Merriweather', serif;
+  text-align: center;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#bio {
+  text-align: left;
+}
+
+#leeftijd {
+  margin-bottom: 1.5rem;
 }
 
 a {
   color: #88C173;
+  text-align: center;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+  height: 20rem;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  height: 2rem;
 }
