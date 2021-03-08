@@ -16,7 +16,13 @@ Clone eerst de repository via de terminal:
 
 `$ git clone https://github.com/maxwieringa/blok-tech`
 
-Na dat je het git clone hebt gedaan voer je de command npm install uit in je terminal.
+navigeer naar de repository in de terminal:
+
+`$ cd blok-tech/`
+
+Voeg de .env file toe aan de clone van de repository.
+
+Na dat je git clone hebt gedaan voer je de command npm install uit in je terminal om de packages te downloaden.
 
 `$ npm install`
 
