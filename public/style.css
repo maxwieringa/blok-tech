@@ -1,0 +1,24 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F8F7F5;
+  margin: 0;
+}
+
+header {
+  background-color: #BCD4B5;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: #88C173;
+}
+
+p {
+  color: #88C173;
+  font-family: 'Merriweather', serif;
+}
+
+a {
+  color: #88C173;
+}
